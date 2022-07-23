@@ -1,0 +1,6 @@
+# from sqlalchemy import func
+
+# class Item (db.Model):
+#     item_price = db.Column(db.Integer, nullable=False)
+
+# sum = Item.query.with_entities(func.sum(Item.item_price).label('total')).first().total

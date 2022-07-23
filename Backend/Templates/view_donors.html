@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+    {% for row in our_donors %}
+    <tr>
+        <td>{{row.id}}</td>
+        <td>{{row.category}}</td>
+        <td>{{row.donor_name1}}</td>
+        <td>{{row.donor_name2}}</td>
+        <td>{{row.dob}}</td>
+        <td>{{row.gender}}</td>
+        <td>{{row.phone_number}}</td>
+        <td>{{row.email}}</td>
+        <td>{{row.pan_number}}</td>
+        <td>{{row.state}}</td>
+        <td>{{row.city}}</td>
+        <td>{{row.pincode}}</td>
+        <td>{{row.nationality}}</td>
+        <td>{{row.trs}}</td>
+        <td>{{row.range}}</td>
+    </tr>
+    {% endfor %}
+</table>
+    <h3>According to categories</h3>
+    <table>
+        <h3>Both</h3>
+    {% for row in our_donors_lac %}
+    <tr>
+        <td>{{row.id}}</td>
+        <td>{{row.category}}</td>
+        <td>{{row.donor_name1}}</td>
+        <td>{{row.donor_name2}}</td>
+        <td>{{row.dob}}</td>
+        <td>{{row.gender}}</td>
+        <td>{{row.phone_number}}</td>
+        <td>{{row.email}}</td>
+        <td>{{row.pan_number}}</td>
+        <td>{{row.state}}</td>
+        <td>{{row.city}}</td>
+        <td>{{row.pincode}}</td>
+        <td>{{row.nationality}}</td>
+        <td>{{row.trs}}</td>
+        <td>{{row.range}}</td>
+    </tr>
+    {% endfor %}
+    <tr>
+        <h4>Count = {{our_donors_lac_count}}</h4>
+    </tr>
+</table>
+<table>
+    <h3>Lactating Mothers</h3>
+    {% for row in our_donors_both %}
+    <tr>
+        <td>{{row.id}}</td>
+        <td>{{row.category}}</td>
+        <td>{{row.donor_name1}}</td>
+        <td>{{row.donor_name2}}</td>
+        <td>{{row.dob}}</td>
+        <td>{{row.gender}}</td>
+        <td>{{row.phone_number}}</td>
+        <td>{{row.email}}</td>
+        <td>{{row.pan_number}}</td>
+        <td>{{row.state}}</td>
+        <td>{{row.city}}</td>
+        <td>{{row.pincode}}</td>
+        <td>{{row.nationality}}</td>
+        <td>{{row.trs}}</td>
+        <td>{{row.range}}</td>
+    </tr>
+    {% endfor %}
+    <tr>
+        <h4>Count = {{our_donors_both_count}}</h4>
+    </tr>
+
+</table>
+
+<table>
+    <h3>Preterm Babies</h3>
+    {% for row in our_donors_preterm %}
+    <tr>
+        <td>{{row.id}}</td>
+        <td>{{row.category}}</td>
+        <td>{{row.donor_name1}}</td>
+        <td>{{row.donor_name2}}</td>
+        <td>{{row.dob}}</td>
+        <td>{{row.gender}}</td>
+        <td>{{row.phone_number}}</td>
+        <td>{{row.email}}</td>
+        <td>{{row.pan_number}}</td>
+        <td>{{row.state}}</td>
+        <td>{{row.city}}</td>
+        <td>{{row.pincode}}</td>
+        <td>{{row.nationality}}</td>
+        <td>{{row.trs}}</td>
+        <td>{{row.range}}</td>
+    </tr>
+    {% endfor %}
+    <tr>
+        <h4>Count = {{our_donors_preterm_count}}</h4>
+    </tr>
+
+</table>
+
+</body>
+</html>

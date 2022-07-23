@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preterm Babies</title>
+</head>
+<body>
+    {% if message %}
+        <p class = 'message'>{{message | safe}}</p>
+        {% endif %}
+    <form action="/submit" method="POST">
+      <input type="radio" name="category" id = "1" value="Preterm Babies" style = "margin-bottom: 20px" checked/>
+        <label for="1"> Preterm Babies</label><br>
+              <input type="radio" name="category" id="2" value="Lactating Mothers" style = "margin-bottom: 20px" /><label for="2"> Lactating Mothers </label><br>
+              <input type="radio" name="category" id = "3" value="Both" style = "margin-bottom: 20px" /><label for = "3" >Both</label><br>
+        <input type = "donor_name1" name = "donor_name1" placeholder="First Name"><br>
+        <input type = 'donor_name2' name = 'donor_name2' placeholder="Second Name"><br>
+        <p>Date: </p>
+        <input type = 'date' name = 'dob' placeholder="Date of Birth"><br>
+        <p>Gender</p>
+          <select name="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        <input type = "phone_number" name = "phone_number" placeholder="Mobile"><br>
+        <input type = "email" name = "email" placeholder="E-mail"><br>
+        <input type="pan_number" name = 'pan_number' placeholder="Pan Number"><br>
+        <input type = "state" name = "state" placeholder="State"><br>
+        <input type = "city" name = "city" placeholder="City"><br>
+        <input type = "pincode" name = "pincode" placeholder="Pin Code"><br>
+        <input type = 'nationality' name="nationality" placeholder="Nationality">
+        <input type = 'trs' name ='trs' placeholder="Tax Resident Status">
+        <input type="radio" name="range" id = "1" value="200" style = "margin-bottom: 20px" checked/>
+    <label for="1"> 1 Day - Rs 200</label><br>
+          <input type="radio" name="range" id="2" value="400" style = "margin-bottom: 20px" /><label for="2"> 2 Days - Rs 400</label><br>
+          <input type="radio" name="range" id = "3" value="1400" style = "margin-bottom: 20px" /><label for = "3" >1 Week - Rs 1400</label><br>
+          <input type="radio" name="range" id = "4" value="2800" style = "margin-bottom: 20px" /><label for = "4">2 Weeks - Rs 2800</label><br>
+          <input type="radio" name="range" id ="5" value="6000" style = "margin-bottom: 20px"/><label for = "5">1 Month - Rs 6000</label> <br>
+        <input type = 'submit'>
+    </form>
+    <button> View</button>
+</body>
+</html>

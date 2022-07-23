@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lactating Mothers</title>
+</head>
+<body>
+    {% if message %}
+        <p class = 'message'>{{message | safe}}</p>
+        {% endif %}
+    <form action="/submit" method="POST">
+        <input type = "donor_name1" name = "donor_name1" placeholder="First Name"><br>
+        <input type = 'donor_name2' name = 'donor_name2' placeholder="Second Name"><br>
+        <p>Date: </p>
+        <input type = 'date' name = 'dob' placeholder="Date of Birth"><br>
+        <p>Gender</p>
+          <select name="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        <input type = "phone_number" name = "phone_number" placeholder="Mobile"><br>
+        <input type = "email" name = "email" placeholder="E-mail"><br>
+        <input type="pan_number" name = 'pan_number' placeholder="Pan Number"><br>
+        <input type = "state" name = "state" placeholder="State"><br>
+        <input type = "city" name = "city" placeholder="City"><br>
+        <input type = "pincode" name = "pincode" placeholder="Pin Code"><br>
+        <input type = 'nationality' name="nationality" placeholder="Nationality">
+        <input type = 'trs' name ='trs' placeholder="Tax Resident Status">
+        <input type = 'submit'>
+    </form>
+</body>
+</html>
