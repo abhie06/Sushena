@@ -1,35 +1,0 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
-
-body {
-  font-family: "DM Sans", sans-serif;
-  font-family: "Raleway", sans-serif;
-  cursor: default; }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace; }
-
-/* The following typography styles are according to the Figma provided  */
-::-webkit-scrollbar {
-  width: 2px;
-  height: 1px; }
-
-/* Track */
-::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px rgba(189, 186, 186, 0.541);
-  border-radius: 10px; }
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #ffb3bf;
-  border-radius: 10px; }
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #ffe1e5; }
