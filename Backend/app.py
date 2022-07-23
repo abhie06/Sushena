@@ -118,12 +118,15 @@ def view_data():
 
     #Individual
 
-    donor_details_preterm = Donor_info.query.filter_by(category = 'Preter Babies').all()
+    donor_details_preterm = Donor_info.query.filter_by(category = 'Preterm Babies').all()
     working_details_preterm = []
     for p_detail in donor_details_preterm:
         i = p_detail.range
         working_details_preterm.insert(0,i)
     workingDetailsPreterm = sum(working_details_preterm)
+
+
+    
     return render_template('view_data.html',workingDetails=workingDetails,all_details=all_details, workingDetailsPreterm= workingDetailsPreterm)
 
 @app.route('/view_donors')
