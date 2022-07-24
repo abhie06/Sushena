@@ -2,28 +2,47 @@ from calendar import c
 from email import message
 from email.policy import default
 from enum import unique
+from locale import currency
+from pickletools import read_int4
+import re
 from sre_constants import CATEGORY_SPACE
 from unicodedata import category
 from wsgiref.validate import validator
-from flask import Flask, request,render_template
+from flask import Flask, jsonify, request,render_template
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import func
 
-from pkg_resources import working_set
+from pkg_resources import require, working_set
 import sqlalchemy
 from flask_migrate import Migrate 
-from flask_cors import CORS
+# from flask_cors import CORS
 from datetime import date, datetime, timedelta
 from flask_login import UserMixin,  login_user, LoginManager, login_required, logout_user, current_user
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField
 import os
+import json
+import razorpay
+import logging
+from pyspark.sql.functions import col
+from bson.objectid import ObjectId   
 
 
 
+
+import random
+import string
+def generate_id(length= 50):
+    key = ''
+    for i in range(length):
+        key = random.choice(string.ascii_lowercase + string.ascii_uppercase + string.digits)
+    return key
 
 
 app = Flask(__name__) 
+
+razorpay_client = razorpay.Client(auth=("rzp_test_lyK9zipYVqiwZt", "eIpED2PCPWgnKpi4X6XEkdvR"))
+
 
 ENV = 'dev'
 
@@ -41,7 +60,7 @@ SECRET_KEY = os.urandom(32)
 app.config['SECRET_KEY'] = 'SUSHENA_PROJECT'
 
 db = SQLAlchemy(app)
-CORS(app)
+# 
 migrate = Migrate(app,db)
 
 login_manager = LoginManager()
@@ -111,10 +130,13 @@ def data():
         trs = request.form['trs']
         range = request.form['range']
         # print(donor_name1,donor_name2,dob,gender,phone_number,email,pan_number,state,city,pincode,nationality,trs)
-        data = Donor_info_details(category,donor_name1,donor_name2,dob,gender,phone_number,email,pan_number,state,city,pincode,nationality,trs,range)
-        db.session.add(data)
+        donor = Donor_info_details(category,donor_name1,donor_name2,dob,gender,phone_number,email,pan_number,state,city,pincode,nationality,trs,range)
+        db.session.add(donor)
         db.session.commit()
-        return render_template('thank_you.html')
+        
+        return render_template('charge.html', id = donor.id)
+
+
         # param_dict = {
         #      'MID':'WorldP64425807474247',
         #     'ORDER_ID':'str(datetime.datetime.now().timestamp())',
@@ -202,5 +224,20 @@ def login():
 class LoginForm(FlaskForm):
     username = StringField("Username")
     password = PasswordField("Password")
-if __name__ =='__main__':
+
+@app.route('/charge', methods=['POST'])
+def app_charge():
+    amount = 5100
+    payment_id = request.form['razorpay_payment_id']
+    razorpay_client.payment.capture(payment_id, amount)
+    # return json.dumps(razorpay_client.payment.fetch(payment_id))
+    return render_template('Thank_you.html')
+
+
+
+
+
+if __name__ == '__main__':
     app.run()
+
+

@@ -5,11 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+<script src = "jQuery/jquery-1.11.2.min.js"></script>
 </head>
 <body>
-    <table>
+    <div class="optionsDiv">
+        Filter By Position
+        <select id="selectField">
+            <option value="All" selected>All</option>
+            <option value="Preterm Babies">Preterm Babies</option>
+            <option value="Lactating Mothers">Lactating Mothers</option>
+            <option value="Both">Both</option>
+
+        </select>
+
+        </div>
+
+<table id = "myTable">
     {% for row in our_donors %}
-    <tr>
+    <tr category = "{{row.category}}">
         <td>{{row.id}}</td>
         <td>{{row.category}}</td>
         <td>{{row.donor_name1}}</td>
@@ -27,7 +41,11 @@
         <td>{{row.range}}</td>
     </tr>
     {% endfor %}
+    </table>
+<tbody>
 </table>
+ 
+   
     <h3>According to categories</h3>
     <table>
         <h3>Both</h3>
@@ -107,6 +125,10 @@
     </tr>
 
 </table>
-
+<script src = "jquery.min.js"></script>
+<script src = "ddtf.js"></script>
+<script>
+$('#mytable').ddTableFilter();
+</script>
 </body>
 </html>
